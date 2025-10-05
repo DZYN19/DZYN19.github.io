@@ -11,9 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        h1 { color: #bb94fa; text-align: center; font-size: 75px;}
+        h1 { color: #bb94fa; text-align: center; font-size: 75px; margin-left: 110px;}
         h2 { color: #d8c5f7; text-align: center; font-size: 70px; margin-top: -20px; }
         h3 { color: #bb94fa; text-align: center; font-size: 9mm; margin-top: -40px; }
+        p { color: #bb94fa; text-align: center; font-size: 8mm; margin-top: -10px; font-family: 'Poppins', sans-serif; position: fixed;
+        bottom: 446px; left: 400px; }
         body { 
             background: linear-gradient(270deg, #00033d, #0600AB, #0033ff, #a773fa, #0033ff, #0600AB, #0600AB, #00033D);
             background-size: 800% 800%;
@@ -76,7 +78,7 @@
             animation: slideIn 2s ease forwards;
             display: inline-block;
             position: relative;
-            margin-left: 15px;
+            margin-left: 110px;
         }
         @keyframes slideIn {
             from { left: -100px; opacity: 0; }
@@ -86,7 +88,7 @@
             animation: slideIn 2s ease forwards;
             display: inline-block;
             position: relative;
-            margin-left: 15px;
+            margin-left: 110px;
         }
 
         @keyframes fadeInBtn {
@@ -96,7 +98,7 @@
         #kananBox {
             display: none;
             position: fixed;
-            top: 80px;
+            top: 100px;
             right: 30px;
             width: 260px;
             height: auto;
@@ -117,6 +119,15 @@
         .hidden {
             opacity: 0; 
         }
+        @keyframes regular-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blink {
+            animation: regular-blink 1.5s infinite;
+        }
         
     </style>
 </head>
@@ -125,12 +136,13 @@
         <span class="slide-in">Selamat Datang di Website Pertamaku :D</span>
         <div id="clock"></div>
     </div>
-    <button id="startBtn">Tekan!</button>
+    <button id="TombolStart">Klik!</button>
     <h1 id="mainH1" class="hidden">Halo, Aku</h1><br>
     <h2 id="mainH2" class="hidden"><i>Rizky Dzaky Nur</i></h2><br>
     <h3 id="mainH3" class="hidden">Aku Lagi Belajar Coding Nihh, hehe</h3><br>
-    <button id="myBtn" style="display:none;">Pencet Sini Kalau Mau Lihat Biodataku😊</button>
+    <button id="TombolBio" style="display:none;">Pencet Sini Kalau Mau Lihat Biodataku😊</button>
     <div id="kananBox"></div>
+    <p id="tekan" class="blink">< Klik Dong!</p>
     <script>
         // Jam Digital
         function updateClock() {
@@ -142,21 +154,22 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        document.getElementById('startBtn').onclick = function() {
+        document.getElementById('TombolStart').onclick = function() {
             document.getElementById('mainH1').classList.add('slide-in');
             document.getElementById('mainH1').classList.remove('hidden');
             document.getElementById('mainH2').classList.add('slide-in');
             document.getElementById('mainH2').classList.remove('hidden');
             document.getElementById('mainH3').classList.add('slide-in');
             document.getElementById('mainH3').classList.remove('hidden');
-            const myBtn = document.getElementById('myBtn');
+            const myBtn = document.getElementById('TombolBio');
             myBtn.style.display = 'inline-block';
             myBtn.classList.remove('hidden');
             myBtn.style.animation = 'fadeInBtn 3s ease forwards';
-            document.getElementById('startBtn').style.display = 'none';
+            document.getElementById('TombolStart').style.display = 'none';
+            document.getElementById('tekan').style.display = 'none';
         };
 
-        document.getElementById('myBtn').onclick = function() {
+        document.getElementById('TombolBio').onclick = function() {
             document.getElementById('kananBox').style.display = 'block';
             document.getElementById('kananBox').innerHTML = `
                 <span id="closeBox" style="cursor:pointer;float:right;font-size:1.5rem;font-weight:bold;">&times;</span>
