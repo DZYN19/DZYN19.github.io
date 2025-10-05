@@ -1,12 +1,40 @@
-button {
-    padding: 10px 10px;
+#TombolStart {
+    display: inline-block;
+    padding: 10px 100px;
+    border: #bb94fa 3px solid;
+    border-radius: 15px;
+    background-color: transparent;
+    color: #bb94fa;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 25px;
+    margin-left: 112px;
     transition: background .2s;
-
 }
 
-button:hover {
-    background: #000000;
-    color: #ffffff;
-    cursor: pointer;
-    padding: 14px 20px;
+#TombolBio {
+    display: inline-block;
+    padding: 10px 20px;
+    border: #bb94fa 3px solid;
+    border-radius: 15px;
+    background-color: transparent;
+    color: #bb94fa;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 25px;
+    margin-left: 110px;
+    transition: background .2s;
 }
+
+
+
+#TombolStart:hover {
+    background: #bb94fa;
+    color: #d8c5f7;
+    padding: 10px 100px;
+}
+
+#TombolBio:hover {
+    background: #bb94fa;
+    color: #d8c5f7;
+    padding: 10px 20px;
+}
+
